@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wangbo Xia - CV / Resume. AI Project Manager & Software Developer.">
     <title>Wangbo Xia - CV</title>
     <style>
+        :root {
+            --bg-color: #f7f9fc;
+            --paper-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --text-tertiary: #777777;
+            --accent-line: #000000;
+            --link-color: #2c2c2c;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,200 +23,261 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: white;
-            padding: 20px;
+            /* system-ui picks the best font for the user's OS (San Francisco on Mac, Segoe on Win) */
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+            -webkit-font-smoothing: antialiased; /* Makes text sharper on Mac */
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 900px; /* Slightly narrower for better readability line-length */
             margin: 0 auto;
-            background: white;
-            border: 1px solid #ddd;
-            overflow: hidden;
+            background: var(--paper-color);
+            /* Replaced harsh border with elegant shadow */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border-radius: 2px;
         }
         
+        /* --- HEADER --- */
         header {
-            background: white;
-            color: #000;
-            padding: 40px 30px;
+            padding: 50px 40px 40px 40px;
             text-align: center;
-            border-bottom: 2px solid #000;
+            border-bottom: 1px solid #eee;
         }
         
         .name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            color: #000;
+            text-transform: uppercase;
         }
         
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
+            gap: 25px;
             flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            transition: color 0.2s;
         }
         
-        .contact-item i {
-            font-size: 1.1rem;
+        .contact-item:hover {
+            color: #000;
         }
         
+        /* --- CONTENT LAYOUT --- */
         .content {
-            padding: 40px;
+            padding: 50px;
         }
         
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 45px;
+        }
+
+        /* Last section shouldn't have margin */
+        .section:last-child {
+            margin-bottom: 0;
         }
         
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
             color: #000;
-            padding-bottom: 8px;
+            padding-bottom: 10px;
             border-bottom: 2px solid #000;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px; /* Adds "premium" feel to headers */
             text-transform: uppercase;
         }
         
         .professional-summary {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            text-align: justify;
         }
         
+        /* --- ITEMS (Experience/Education) --- */
         .education-item, .experience-item {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            /* Prevent page break inside an item when printing */
+            page-break-inside: avoid; 
         }
         
-        .education-header {
+        .education-header, .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
         }
         
-        .institution {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .institution, .company {
+            font-size: 1.25rem;
+            font-weight: 700;
             color: #000;
-        }
-        
-        .degree {
-            font-size: 1.1rem;
-            color: #333;
-            margin: 5px 0;
-        }
-        
-        .date {
-            color: #666;
-            font-style: normal;
-            margin-bottom: 10px;
-            white-space: nowrap;
         }
         
         .role {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            color: #000;
-            margin: 10px 0;
+            color: #222;
+            margin: 8px 0 4px 0;
         }
-        
-        .company {
+
+        .degree {
             font-size: 1.1rem;
-            color: #333;
-            margin-bottom: 5px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .honors {
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+            margin-top: 2px;
         }
         
+        .date {
+            font-family: monospace; /* Makes numbers align nicely */
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+            background: #f4f4f4;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .tech-stack {
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        /* --- BULLETS --- */
         .achievements {
-            margin-left: 0;
-            margin-top: 10px;
+            margin-top: 12px;
             list-style: none;
-            padding-left: 0;
         }
         
         .achievements li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
         
         .achievements li:before {
-            content: '▪';
+            content: '›'; /* More elegant than a square or dot */
             position: absolute;
             left: 0;
             color: #000;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            top: -2px;
         }
         
+        .achievements strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* --- LINKS --- */
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            color: var(--link-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2px;
+            transition: all 0.2s;
+        }
+        
+        .github-link:hover {
+            border-bottom-color: #000;
+            color: #000;
+        }
+        
+        /* --- SKILLS GRID --- */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category {
-            background: white;
-            padding: 20px;
-            border: 1px solid #ddd;
+            grid-template-columns: 1fr 1fr; /* Precise 2-column */
+            gap: 40px;
         }
         
         .skill-category h3 {
-            color: #000;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
         }
         
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
         
+        /* Skill Pills Style */
         .skill {
-            background: white;
-            padding: 5px 12px;
-            border: 1px solid #ddd;
+            background: #f0f0f0;
+            padding: 6px 14px;
+            border-radius: 20px; /* Pill shape */
             font-size: 0.9rem;
-            color: #333;
-        }
-        
-        .github-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #000;
-            text-decoration: underline;
             font-weight: 500;
+            color: #333;
+            border: 1px solid transparent;
         }
-        
-        .github-link:hover {
-            text-decoration: none;
-        }
-        
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .content {
-                padding: 25px;
+            body { padding: 0; }
+            .container { box-shadow: none; border: none; }
+            .content { padding: 30px 20px; }
+            .name { font-size: 2.2rem; }
+            .skills-container { grid-template-columns: 1fr; gap: 30px; }
+            .contact-info { flex-direction: column; align-items: center; gap: 10px; }
+            .date { margin-top: 5px; }
+            header { padding: 40px 20px; }
+        }
+
+        /* --- PRINT OPTIMIZATION --- */
+        @media print {
+            body { 
+                background: white; 
+                color: black; 
+                font-size: 12pt; /* Standard print size */
             }
-            
-            .name {
-                font-size: 2rem;
+            .container { 
+                box-shadow: none; 
+                border: none; 
+                max-width: 100%; 
+                margin: 0;
+                padding: 0;
             }
-            
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-            }
+            header { padding-top: 0; }
+            a { text-decoration: none; color: black; }
+            /* Shows the URL next to the link for printed paper, optional
+            a[href]:after { content: " (" attr(href) ")"; font-size: 0.8em; } */
+            .date { border: 1px solid #ccc; } /* Add border to date for contrast on paper */
         }
     </style>
 </head>
@@ -232,14 +304,14 @@
         
         <div class="content">
             <section class="section">
-                <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
+                <h2 class="section-title">Professional Summary</h2>
                 <p class="professional-summary">
                     Assistant Engineer at China Mobile Hong Kong specializing in AI-driven network optimization and full-stack geospatial solutions. Led cross-institutional AI R&D projects and developed high-performance telecom applications improving planning efficiency by 90%.
                 </p>
             </section>
             
             <section class="section">
-                <h2 class="section-title">EDUCATION</h2>
+                <h2 class="section-title">Education</h2>
                 <div class="education-item">
                     <div class="education-header">
                         <div class="institution">The University of Hong Kong</div>
@@ -253,44 +325,51 @@
                         <div class="date">2018.08 – 2021.08</div>
                     </div>
                     <div class="degree">Bachelor of Science in Information Technology</div>
-                    <div>Graduated with Distinction & Dean's List 2021</div>
+                    <div class="honors">Graduated with Distinction & Dean's List 2021</div>
                 </div>
             </section>
             
             <section class="section">
-                <h2 class="section-title">EXPERIENCE</h2>
+                <h2 class="section-title">Experience</h2>
                 <div class="experience-item">
-                    <div class="company">China Mobile Hong Kong</div>
-                    <div class="date">2023.11 – Present</div>
+                    <div class="experience-header">
+                        <div class="company">China Mobile Hong Kong</div>
+                        <div class="date">2023.11 – Present</div>
+                    </div>
                     
-                    <div class="role">AI Project Manager (2024.09 – Present)</div>
+                    <div class="role">AI Project Manager</div>
+                    <div class="date" style="display:inline-block; font-size: 0.85rem; margin-bottom: 10px;">2024.09 – Present</div>
+                    
                     <ul class="achievements">
-                        <li><strong>Strategic R&D Leadership:</strong> Led CUHK collaboration on multi-million HKD AI platform for indoor wireless network design automation</li>
-                        <li><strong>Executive Oversight:</strong> Reported progress and strategic updates to senior management board</li>
-                        <li><strong>Technical Roadmap:</strong> Defined AI strategy for antenna placement and coverage prediction using deep learning and computer vision</li>
-                        <li><strong>Agile Delivery:</strong> Managed 3-phase development lifecycle with 100% on-time milestone achievement</li>
-                        <li><strong>Cross-functional Alignment:</strong> Bridged academic and industry teams to resolve AI model training and system integration challenges</li>
-                        <li><strong>Performance Metrics:</strong> Achieved 95% antenna positioning accuracy, 90% model generalization, and 95+ satisfaction ratings</li>
-                        <li><strong>Risk Management:</strong> Proactively addressed technical challenges to maintain 2025-2026 timeline</li>
+                        <li><strong>Strategic R&D Leadership:</strong> Led CUHK collaboration on multi-million HKD AI platform for indoor wireless network design automation.</li>
+                        <li><strong>Executive Oversight:</strong> Reported progress and strategic updates to senior management board.</li>
+                        <li><strong>Technical Roadmap:</strong> Defined AI strategy for antenna placement and coverage prediction using deep learning and computer vision.</li>
+                        <li><strong>Agile Delivery:</strong> Managed 3-phase development lifecycle with 100% on-time milestone achievement.</li>
+                        <li><strong>Cross-functional Alignment:</strong> Bridged academic and industry teams to resolve AI model training and system integration challenges.</li>
+                        <li><strong>Performance Metrics:</strong> Achieved 95% antenna positioning accuracy, 90% model generalization, and 95+ satisfaction ratings.</li>
                     </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="role">Software Developer</div>
+                    <div class="date" style="display:inline-block; font-size: 0.85rem; margin-bottom: 10px;">2023.11 – Present</div>
+                    <div class="tech-stack">Full-Stack GIS Web Application | React.js, Node.js, PostgreSQL, Redis</div>
                     
-                    <div class="role">Software Developer (2023.11 – Present)</div>
-                    <div><strong>Full-Stack GIS Web Application | React.js, Node.js, PostgreSQL, Redis</strong></div>
                     <ul class="achievements">
-                        <li><strong>Platform Development:</strong> Built full-stack telecom network visualization platform with React/Node.js, serving 8+ geospatial data layers for Hong Kong network planning</li>
-                        <li><strong>API Optimization:</strong> Created 36 RESTful APIs with Redis caching and PostGIS queries, achieving 90% performance improvement and efficient vector tile rendering</li>
-                        <li><strong>Interactive Mapping:</strong> Engineered Leaflet-based interface with clustering, dynamic layers, and real-time filtering handling 10,000+ geographic features</li>
-                        <li><strong>Performance Engineering:</strong> Implemented request debouncing, viewport-based fetching, and deployed with Nginx/PM2 for optimal scalability</li>
-                        <li><strong>Database Architecture:</strong> Integrated 4 PostgreSQL databases with connection pooling for grid data, site management, and competitive analysis systems</li>
+                        <li><strong>Platform Development:</strong> Built full-stack telecom network visualization platform with React/Node.js, serving 8+ geospatial data layers.</li>
+                        <li><strong>API Optimization:</strong> Created 36 RESTful APIs with Redis caching and PostGIS queries, achieving 90% performance improvement.</li>
+                        <li><strong>Interactive Mapping:</strong> Engineered Leaflet-based interface with clustering, dynamic layers, and real-time filtering (10k+ features).</li>
+                        <li><strong>Performance Engineering:</strong> Implemented request debouncing, viewport-based fetching, and deployed with Nginx/PM2.</li>
+                        <li><strong>Database Architecture:</strong> Integrated 4 PostgreSQL databases with connection pooling for grid data and site management.</li>
                     </ul>
                     <a href="https://github.com/EddieXIAHK/Full-Stack-GIS-Web-Application.git" class="github-link" target="_blank">
-                        GitHub: https://github.com/EddieXIAHK/Full-Stack-GIS-Web-Application.git
+                        View Project on GitHub
                     </a>
                 </div>
             </section>
             
             <section class="section">
-                <h2 class="section-title">SKILLSET</h2>
+                <h2 class="section-title">Skillset</h2>
                 <div class="skills-container">
                     <div class="skill-category">
                         <h3>Technical</h3>
