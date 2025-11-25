@@ -48,18 +48,18 @@
 
         /* --- HEADER --- */
         header {
-            padding: 40px 40px 30px 40px;
+            padding: 50px 40px 40px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
         }
 
         .name {
-            font-size: 2.2rem;
-            /* Reduced from 2.8rem */
+            font-size: 2.8rem;
             font-weight: 700;
             letter-spacing: -0.025em;
             margin-bottom: 12px;
-            color: var(--text-primary);
+            color: white;
             text-transform: uppercase;
             line-height: 1.1;
         }
@@ -70,18 +70,19 @@
             gap: 24px;
             flex-wrap: wrap;
             font-size: 0.9rem;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 6px;
-            transition: color 0.2s;
+            transition: all 0.2s;
         }
 
         .contact-item:hover {
-            color: var(--text-primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
         .contact-item svg {
@@ -107,9 +108,9 @@
         .section-title {
             font-size: 0.85rem;
             font-weight: 700;
-            color: var(--text-primary);
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--text-primary);
+            color: var(--accent-color);
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent-color);
             margin-bottom: 20px;
             letter-spacing: 0.05em;
             text-transform: uppercase;
@@ -128,6 +129,16 @@
             margin-bottom: 24px;
             /* Reduced from 30px */
             page-break-inside: avoid;
+            padding: 16px;
+            background: #f9fafb;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+            transform: translateX(4px);
         }
 
         .header-row {
@@ -221,17 +232,18 @@
             display: inline-flex;
             align-items: center;
             margin-top: 12px;
-            color: var(--text-secondary);
+            color: var(--accent-color);
             text-decoration: none;
             font-size: 0.85rem;
-            font-weight: 500;
-            border-bottom: 1px solid transparent;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
             transition: all 0.2s;
         }
 
         .github-link:hover {
-            color: #000;
-            border-bottom-color: #000;
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+            transform: translateX(2px);
         }
 
         /* --- SKILLS GRID --- */
@@ -259,14 +271,20 @@
         /* Skill Pills Style */
         .skill {
             background: #f3f4f6;
-            padding: 4px 10px;
-            /* Smaller padding */
-            border-radius: 6px;
-            /* Less rounded, more techy */
+            padding: 6px 12px;
+            border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
             color: var(--text-secondary);
-            border: 1px solid transparent;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+        .skill:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .skill.ai-tool {
@@ -275,13 +293,9 @@
             border-color: #dbeafe;
         }
 
-        /* --- HIGHLIGHTS --- */
-        mark.highlight {
-            background: linear-gradient(120deg, #fef08a 0%, #fef08a 100%);
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-weight: 600;
-            color: inherit;
+        .skill.ai-tool:hover {
+            background: #dbeafe;
+            box-shadow: 0 2px 8px rgba(29, 78, 216, 0.2);
         }
 
         /* --- RESPONSIVE --- */
@@ -407,10 +421,10 @@
             <section class="section">
                 <h2 class="section-title">Professional Summary</h2>
                 <p class="professional-summary">
-                    Assistant Engineer at China Mobile Hong Kong specializing in <mark class="highlight">AI-driven network optimization</mark> and
-                    <mark class="highlight">full-stack geospatial solutions</mark>. Hold multiple strategic roles including <mark class="highlight">Technology Innovation Specialist</mark> and Digital Commissioner at the Radio Network Center. 
-                    Led <mark class="highlight">cross-institutional AI R&D projects</mark> and developed
-                    <mark class="highlight">high-performance telecom applications</mark> improving network optimization and planning efficiency.
+                    Assistant Engineer at China Mobile Hong Kong specializing in <strong>AI-driven network optimization</strong> and
+                    <strong>full-stack geospatial solutions</strong>. Hold multiple strategic roles including <strong>Technology Innovation Specialist</strong> and Digital Commissioner at the Radio Network Center. 
+                    Led <strong>cross-institutional AI R&D projects</strong> and developed
+                    <strong>high-performance telecom applications</strong> improving network optimization and planning efficiency.
                 </p>
             </section>
 
@@ -455,14 +469,14 @@
                     </div>
 
                     <ul class="achievements">
-                        <li><strong><mark class="highlight">Strategic R&D Leadership:</mark></strong> Led <mark class="highlight">CUHK collaboration</mark> on <mark class="highlight">multi-million HKD AI platform</mark> for indoor wireless network design automation.</li>
-                        <li><strong><mark class="highlight">Executive Oversight:</mark></strong> Reported progress and strategic updates to <mark class="highlight">senior management board</mark>.</li>
+                        <li><strong>Strategic R&D Leadership:</strong> Led <strong>CUHK collaboration</strong> on <strong>multi-million HKD AI platform</strong> for indoor wireless network design automation.</li>
+                        <li><strong>Executive Oversight:</strong> Reported progress and strategic updates to <strong>senior management board</strong>.</li>
                         <li><strong>Technical Roadmap:</strong> Defined AI strategy for antenna placement and coverage
-                            prediction using <mark class="highlight">deep learning and computer vision</mark>.</li>
-                        <li><strong>Agile Delivery:</strong> Managed 3-phase development lifecycle with <mark class="highlight">100% on-time milestone achievement</mark>.</li>
+                            prediction using <strong>deep learning and computer vision</strong>.</li>
+                        <li><strong>Agile Delivery:</strong> Managed 3-phase development lifecycle with <strong>100% on-time milestone achievement</strong>.</li>
                         <li><strong>Cross-functional Alignment:</strong> Bridged academic and industry teams to resolve
                             AI model training and system integration challenges.</li>
-                        <li><strong>Performance Metrics:</strong> Achieved <mark class="highlight">95% antenna positioning accuracy</mark>, <mark class="highlight">90% model generalization</mark>, and <mark class="highlight">95+ satisfaction ratings</mark>.</li>
+                        <li><strong>Performance Metrics:</strong> Achieved <strong>95% antenna positioning accuracy</strong>, <strong>90% model generalization</strong>, and <strong>95+ satisfaction ratings</strong>.</li>
                     </ul>
                 </div>
 
@@ -489,12 +503,12 @@
                     <div class="degree"><strong>GenAI-Powered Full-Stack GIS Web Application</strong></div>
 
                     <ul class="achievements">
-                        <li><strong><mark class="highlight">Platform Development:</mark></strong> Built <mark class="highlight">full-stack telecom network visualization platform</mark> with React/Node.js, serving <mark class="highlight">8+ geospatial data layers</mark> for Hong Kong network planning.</li>
-                        <li><strong><mark class="highlight">GenAI Integration:</mark></strong> Implemented a <mark class="highlight">local LLM endpoint</mark> with streaming responses to generate actionable telecom insights, ensuring <mark class="highlight">data privacy</mark> and low-latency analysis.</li>
-                        <li><strong>API Optimization:</strong> Created <mark class="highlight">36 RESTful APIs</mark> with Redis caching and PostGIS queries, achieving <mark class="highlight">90% performance improvement</mark> and efficient vector tile rendering.</li>
-                        <li><strong>Interactive Mapping:</strong> Engineered Leaflet-based interface with clustering, dynamic layers, and real-time filtering handling <mark class="highlight">10,000+ geographic features</mark>.</li>
+                        <li><strong>Platform Development:</strong> Built <strong>full-stack telecom network visualization platform</strong> with React/Node.js, serving <strong>8+ geospatial data layers</strong> for Hong Kong network planning.</li>
+                        <li><strong>GenAI Integration:</strong> Implemented a <strong>local LLM endpoint</strong> with streaming responses to generate actionable telecom insights, ensuring <strong>data privacy</strong> and low-latency analysis.</li>
+                        <li><strong>API Optimization:</strong> Created <strong>36 RESTful APIs</strong> with Redis caching and PostGIS queries, achieving <strong>90% performance improvement</strong> and efficient vector tile rendering.</li>
+                        <li><strong>Interactive Mapping:</strong> Engineered Leaflet-based interface with clustering, dynamic layers, and real-time filtering handling <strong>10,000+ geographic features</strong>.</li>
                         <li><strong>Performance Engineering:</strong> Implemented request debouncing, viewport-based fetching, and deployed with Nginx/PM2 for optimal scalability.</li>
-                        <li><strong>Database Architecture:</strong> Integrated <mark class="highlight">4 PostgreSQL databases</mark> with connection pooling for grid data and site management.</li>
+                        <li><strong>Database Architecture:</strong> Integrated <strong>4 PostgreSQL databases</strong> with connection pooling for grid data and site management.</li>
                     </ul>
                 </div>
 
